@@ -520,27 +520,29 @@ function initializeProjectCards() {
  * Initialize resume download functionality
  */
 function initializeResumeDownload() {
-    const resumeButtons = document.querySelectorAll('.btn:contains("Resume")');
+    // Get all buttons and filter for resume buttons
+    const allButtons = document.querySelectorAll('.btn');
+    const resumeButtons = Array.from(allButtons).filter(btn => 
+        btn.textContent.includes('Resume')
+    );
     
     // Note: You'll need to replace this with actual resume file
     const resumeURL = 'path/to/your/resume.pdf';
     
     resumeButtons.forEach(button => {
-        if (button.textContent.includes('Resume')) {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Create temporary download link
-                const link = document.createElement('a');
-                link.href = resumeURL;
-                link.download = 'Your_Name_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                console.log('Resume download initiated');
-            });
-        }
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create temporary download link
+            const link = document.createElement('a');
+            link.href = resumeURL;
+            link.download = 'Your_Name_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            console.log('Resume download initiated');
+        });
     });
 }
 
