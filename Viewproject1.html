@@ -1,0 +1,264 @@
+<!-- project-view.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Daksh Patel</title>
+  <style>
+    /* ===============================================
+   PROJECT VIEW PAGE STYLES - REFINED SECTIONS
+   =============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7fafc;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+  border-radius: 50%;
+  position: relative;
+}
+
+.logo-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ed8936;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ed8936;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* MAIN SECTION */
+.project-detail-section {
+  padding: 6rem 2rem 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.project-img{
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(201, 198, 198, 0.486);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+   transition: transform 0.3s ease;
+}
+.project-detail-container {
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.045);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.project-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.project-image {
+  width: 100%;
+  max-height: 200vh;
+  object-fit:fill;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center; /* Horizontal */
+  align-items: center;     /* Vertical */
+  height: 80vh;   
+}
+
+/* DESCRIPTION */
+.project-description {
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* IMAGE SHOWCASE SECTION */
+.image-showcase {
+  margin-top: 1rem;
+  padding: 2rem;
+  border-radius: 15px;
+  background: #fefcfb;
+  box-shadow: 0 5px 25px #4a413834;
+}
+
+.showcase-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.gallery img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(152, 114, 26, 0.581);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .project-detail-container {
+    padding: 2rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 90%;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="project-view.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-icon"></div>
+        <span>Daksh-Editz</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Back to Home</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="project-detail-section">
+    <div class="project-detail-container">
+      <h1 class="project-title">Project EV-B</h1>
+      <div class="Project-img">
+      <img src="/attached_assets/p1.png" alt="Project Image" class="project-image" /></div>
+      <p class="project-description">
+This product landing page is built for showcasing the EV-B electric scooter — blending minimalism with bold typography and immersive 3D renders. The futuristic aesthetic is supported by a modern pastel gradient background, emphasizing the scooter’s innovation. Key performance metrics (speed, battery range, charging time) are clearly highlighted, helping users make quick decisions. The interface supports seamless navigation with floating buttons and a clean component structure. A “Pre-Order” button stands out as the primary CTA, encouraging immediate user interaction. Ideal for high-end tech or mobility brands.
+
+      </p>
+
+      <div class="image-showcase">
+        <h2 class="showcase-title">Project Gallery</h2>
+        <div class="gallery">
+          <p>No More Images</p>
+       <!--    <img src="/AIDataStudio/attached_assets/p1.png" alt="Screenshot 1">
+          <img src="/AIDataStudio/attached_assets/P1.png" alt="Screenshot 2">
+        <img src="/AIDataStudio/attached_assets/Profileimg.png" alt="Screenshot 3">--> 
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Enver</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <div class="logo-icon"></div>
+            <span>Admin Panel</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Back to Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="admin-section">
+    <div class="admin-container">
+        <h2 class="section-title">Add New Project</h2>
+      
+            <form id="projectForm" class="admin-form" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" id="projectName" name="projectName" required>
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Description</label>
+                <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="projectImage">Upload Image</label>
+                <input type="file" id="projectImage" name="image" accept="image/*" required>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Add Project</button>
+        </form>
+
+        <h2 class="section-title">Messages</h2>
+        <div id="messagesContainer" class="messages-container">
+            <p>No messages to display yet.</p>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+document.getElementById('projectForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+
+  fetch('/api/projects', {
+    method: 'POST',
+    body: formData
+  })
+    .then(res => res.text())
+    .then(data => {
+      alert(data);
+      this.reset();
+    })
+    .catch(err => console.error(err));
+});
+</script>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  fetch('/api/projects')
+    .then(res => res.json())
+    .then(projects => {
+      const container = document.querySelector('.projects-grid');
+      projects.forEach(p => {
+        const projectCard = document.createElement('div');
+        projectCard.classList.add('project-card');
+        projectCard.innerHTML = `
+          <div class="project-content">
+            <h3 class="project-title">${p.name}</h3>
+            <p class="project-description">${p.description}</p>
+            <button class="btn btn-project">View Project</button>
+          </div>
+          <div class="project-image">
+            <div class="image-3d-container">
+              <img src="${p.image}" alt="Project Image">
+            </div>
+          </div>
+        `;
+        container.appendChild(projectCard);
+      });
+    });
+});
+</script>
