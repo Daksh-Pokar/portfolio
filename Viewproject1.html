@@ -149,17 +149,23 @@ body {
   margin-bottom: 0.5rem;
   text-align: center;
 }
-
+.projectimg{
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(152, 114, 26, 0.581);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+   transition: transform 0.3s ease;
+}
 .project-image {
   width: 100%;
-  max-height: 200vh;
-  object-fit:fill;
+  max-height: 500px;
+  object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center; /* Horizontal */
-  align-items: center;     /* Vertical */
-  height: 80vh;   
 }
 
 /* DESCRIPTION */
@@ -242,7 +248,7 @@ body {
   <main class="project-detail-section">
     <div class="project-detail-container">
       <h1 class="project-title">Project EV-B</h1>
-      <div class="Project-img">
+      <div class="Projectimg">
       <img src="attached_assets/p1.webp" alt="Project Image" class="project-image" /></div>
       <p class="project-description">
 This product landing page is built for showcasing the EV-B electric scooter — blending minimalism with bold typography and immersive 3D renders. The futuristic aesthetic is supported by a modern pastel gradient background, emphasizing the scooter’s innovation. Key performance metrics (speed, battery range, charging time) are clearly highlighted, helping users make quick decisions. The interface supports seamless navigation with floating buttons and a clean component structure. A “Pre-Order” button stands out as the primary CTA, encouraging immediate user interaction. Ideal for high-end tech or mobility brands.
