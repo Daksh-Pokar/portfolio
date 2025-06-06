@@ -991,3 +991,22 @@ textarea:focus {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+
+.about-text{
+  max-width: 800px;           /* Wider container for better flow */
+  margin: 3rem auto;          /* Center horizontally with spacing from top */
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;        /* ~18px */
+  line-height: 1.8;
+  text-align: center;
+  color: #333;
+  word-break: normal;         /* Prevent breaking in weird places */
+  hyphens: auto;              /* Smooth line breaks on long words */
+  text-wrap: pretty;          /* Better line wrapping (modern browsers) */              /* Soft dark color for better contrast */
+}
+
+.about-text p{
+  margin: 0;
+}
